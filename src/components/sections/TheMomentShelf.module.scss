@@ -1,0 +1,92 @@
+.shelf {
+  margin-bottom: 40px;
+}
+
+.scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    scroll-snap-align: start;
+    flex: 0 0 260px;
+
+    @media (max-width: 483px) {
+      flex: 0 0 220px;
+    }
+  }
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+
+.card {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+
+  &:hover .imageWrap img:first-child {
+    transform: scale(1.03);
+    transition: transform 0.2s ease;
+  }
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 8px;
+
+  img {
+    transition: transform 0.2s ease;
+  }
+}
+
+.artworkBadge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+// ── Info ──────────────────────────────────────────────────────────────────────
+
+.info {
+  padding: 0 2px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--color-text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.meta {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}

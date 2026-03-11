@@ -1,0 +1,151 @@
+.body {
+  padding: 0 40px 80px;
+
+  @media (max-width: 866px) {
+    padding: 0 25px 60px;
+  }
+
+  @media (max-width: 483px) {
+    padding: 0 20px 48px;
+  }
+}
+
+// ── Section ────────────────────────────────────────────────────────────────────
+
+.section {
+  padding: 24px 0;
+  border-top: 1px solid var(--color-separator);
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+.sectionTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+}
+
+// ── Description ────────────────────────────────────────────────────────────────
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0 0 16px;
+  white-space: pre-line;
+}
+
+.webpageLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
+// ── Hosts ───────────────────────────────────────────────────────────────────────
+
+.hosts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.hostCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+}
+
+.hostAvatar {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-separator);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hostInitials {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.hostName {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.hostRole {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+// ── Information Grid ───────────────────────────────────────────────────────────
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 16px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 360px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.infoValue {
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+.infoLink {
+  font-size: 14px;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}

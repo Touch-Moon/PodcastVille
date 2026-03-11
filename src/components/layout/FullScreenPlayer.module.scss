@@ -1,0 +1,263 @@
+// ── Overlay ────────────────────────────────────────────────────────────────────
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+// ── Animated ambient canvas background ────────────────────────────────────────
+
+.ambientCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  // Apple Podcasts 실측값: saturate(2.75) brightness(0.7) contrast(1.9)
+  // scale(1.08): blur 엣지 번짐 방지 (overflow: hidden이 클립함)
+  filter: blur(60px) saturate(2.75) brightness(0.7) contrast(1.9);
+  transform: scale(1.08);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.38);
+}
+
+// ── Inner content ─────────────────────────────────────────────────────────────
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 36px 56px;
+}
+
+// ── Close / minimize button ───────────────────────────────────────────────────
+
+.closeBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 12px;
+  transition: color var(--duration-instant) ease;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+// ── Artwork ───────────────────────────────────────────────────────────────────
+
+.artworkWrap {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.artwork {
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65);
+  display: block;
+}
+
+// ── Track info ────────────────────────────────────────────────────────────────
+
+.trackInfo {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.trackTitle {
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.35;
+  margin: 0 0 5px;
+  letter-spacing: -0.01em;
+}
+
+.trackSubtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+// ── Progress bar ──────────────────────────────────────────────────────────────
+
+.progressSection {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.progressBar {
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 2px;
+}
+
+.progressKnob {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+}
+
+.progressTimes {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.01em;
+}
+
+// ── Playback controls ─────────────────────────────────────────────────────────
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.speedBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: -0.02em;
+  transition: color var(--duration-instant) ease;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.skipBtnLg {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.88);
+  transition: color var(--duration-instant) ease;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.skipWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.skipNum {
+  position: absolute;
+  font-size: 9.5px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  color: currentColor;
+  line-height: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -45%);
+  pointer-events: none;
+}
+
+.playBtnLg {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f1f1f;
+  padding-left: 3px; // optical centering of play triangle
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  transition: opacity var(--duration-instant) ease, transform 0.1s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.moreBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.82);
+  transition: color var(--duration-instant) ease;
+
+  &:hover {
+    color: #fff;
+  }
+}

@@ -1,0 +1,178 @@
+:root {
+  --color-bg: #1f1f1f;
+  --color-sidebar-bg: rgba(235, 235, 245, 0.03);
+  --color-player-bg: #2c2c2e;
+  --miniPlayerBackground: rgba(44, 44, 46, 0.97);
+  --color-player-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: rgba(255, 255, 255, 0.92);
+  --color-text-secondary: rgba(255, 255, 255, 0.55);
+  --color-text-tertiary: rgba(255, 255, 255, 0.3);
+  --color-accent: #f97038;
+  --color-accent-hover: #fdb080;
+  --color-separator: hsla(0, 0%, 100%, 0.1);
+  --color-hover-bg: rgba(51, 51, 51, 0.3);
+  --sidebar-width: 260px;
+  --player-bar-height: 54px;
+  --radius-artwork-xs: 3px;
+  --radius-artwork: 7px;
+  --radius-artwork-lg: 10px;
+  --radius-artwork-xl: 14px;
+  --radius-artwork-2xl: 18px;
+  --radius-card: 10px;
+  --radius-pill: 980px;
+  --duration-instant: 0.1s;
+  --duration-fast: 0.2s;
+  --duration-base: 0.25s;
+  --duration-slow: 0.35s;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ── App Grid Layout ────────────────────────────────────────────────────────────
+
+#app-container {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  height: 100vh;
+  overflow: hidden;
+
+  @media (max-width: 483px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+#sidebar-col {
+  height: 100vh;
+  overflow: hidden;
+
+  @media (max-width: 483px) {
+    display: none;
+  }
+}
+
+#scrollable-page {
+  display: flex;
+  flex-direction: row; // mainCol + QueuePanel side-by-side
+  height: 100vh;
+  overflow: hidden; // each child manages its own scroll
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+// ── Content max-width ─────────────────────────────────────────────────────────
+
+main {
+  max-width: 1680px;
+  margin-inline: auto;
+  width: 100%;
+  container-type: inline-size;
+  container-name: main-content;
+}
+
+// ── Shared Utilities ──────────────────────────────────────────────────────────
+
+.artwork-radius {
+  border-radius: var(--radius-artwork-xs);
+
+  @media (min-width: 1320px) {
+    border-radius: var(--radius-artwork-lg);
+  }
+  @media (min-width: 1680px) {
+    border-radius: var(--radius-artwork-xl);
+  }
+  @media (min-width: 2000px) {
+    border-radius: var(--radius-artwork);
+  }
+}
+
+.shelf-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,259 @@
+// ── Hero container ────────────────────────────────────────────────────────────
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 40px 20px;
+
+  @media (max-width: 866px) {
+    padding: 20px 25px 16px;
+  }
+
+  @media (max-width: 483px) {
+    padding: 15px 25px 32px;
+  }
+}
+
+// ── Top row (artwork + info) ──────────────────────────────────────────────────
+
+.heroTop {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+
+  // tablet + mobile: column layout, centered
+  @media (max-width: 866px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative; // anchor for absolute secondaryActions
+    padding-top: 48px;  // space for Follow button at top-right
+  }
+}
+
+// ── Artwork ───────────────────────────────────────────────────────────────────
+
+.artworkWrap {
+  flex-shrink: 0;
+  width: 270px;
+  height: 270px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 483px) {
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.artwork {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// ── Info ──────────────────────────────────────────────────────────────────────
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 866px) {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 32px;
+  margin: 0 0 2px;
+
+  @media (max-width: 866px) {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  @media (max-width: 483px) {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+
+.author {
+  display: block;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--color-accent);
+  line-height: 32px;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: color var(--duration-instant) ease-in;
+
+  &:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 866px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @media (max-width: 483px) {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+
+// ── Meta row ─────────────────────────────────────────────────────────────────
+
+.meta {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.64);
+  line-height: 14px;
+  margin-bottom: 12px;
+}
+
+.metaStar {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+.explicitBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  padding: 0 2px;
+  width: 13px;
+  height: 13px;
+  color: rgba(255, 255, 255, 0.64);
+  margin-left: 4px;
+}
+
+// ── Description ───────────────────────────────────────────────────────────────
+
+.description {
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.64);
+  max-width: 440px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @media (max-width: 866px) {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+// ── Actions row (info 컬럼 너비 기준, space-between) ──────────────────────────
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+
+  // tablet: center the latest button, hide secondaryActions from here (moved absolute)
+  @media (max-width: 866px) {
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
+
+.latestBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  background: #d4521e;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--duration-instant) ease-in;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+.secondaryActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  // tablet: float to top-right of heroTop container
+  @media (max-width: 866px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.followBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background var(--duration-instant) ease-in, color var(--duration-instant) ease-in;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.13);
+  }
+}
+
+.followingBtn {
+  background: var(--color-accent);
+  color: #fff;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-accent) 85%, transparent);
+  }
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color var(--duration-instant) ease-in;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}

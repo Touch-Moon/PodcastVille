@@ -1,0 +1,243 @@
+// ── Overlay ───────────────────────────────────────────────────────────────────
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+// ── Modal card ────────────────────────────────────────────────────────────────
+
+.modal {
+  background: #252525;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 440px;
+  padding: 44px 40px 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// ── Close button ──────────────────────────────────────────────────────────────
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.65);
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+// ── App icon ──────────────────────────────────────────────────────────────────
+
+.appIcon {
+  width: 80px;
+  height: 80px;
+  background: #d4521e;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(212, 82, 30, 0.4);
+}
+
+// ── Title & subtitle ──────────────────────────────────────────────────────────
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0 0 24px;
+  line-height: 1.55;
+  max-width: 320px;
+}
+
+// ── Form inputs ───────────────────────────────────────────────────────────────
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-family: var(--font-sans);
+  outline: none;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+  }
+
+  &:focus {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.09);
+  }
+}
+
+// ── Forgot password ───────────────────────────────────────────────────────────
+
+.forgotLink {
+  align-self: flex-end;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  margin-top: -2px;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
+
+// ── Continue button ───────────────────────────────────────────────────────────
+
+.continueBtn {
+  width: 100%;
+  height: 52px;
+  background: #d4521e;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease;
+  margin-bottom: 16px;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+// ── OR divider ────────────────────────────────────────────────────────────────
+
+.orDivider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.orLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.orText {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+// ── Google button ─────────────────────────────────────────────────────────────
+
+.googleBtn {
+  width: 100%;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  color: var(--color-text-primary);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.13);
+  }
+}
+
+// ── Privacy text ──────────────────────────────────────────────────────────────
+
+.privacyText {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  max-width: 320px;
+}
+
+.privacyLink {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
+
+// ── Sign up link ──────────────────────────────────────────────────────────────
+
+.signUpText {
+  font-size: 13.5px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+.signUpLink {
+  color: #f97038;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}

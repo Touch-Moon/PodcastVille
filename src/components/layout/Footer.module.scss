@@ -1,0 +1,161 @@
+// ── Footer ─────────────────────────────────────────────────────────────────────
+
+.footer {
+  background: #323232;
+  border-top: 1px solid var(--color-separator);
+  padding: 18px 40px;
+  min-height: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+    gap: 12px;
+    min-height: auto;
+  }
+
+  @media (max-width: 483px) {
+    display: none; // MobileNav handles bottom space on mobile
+  }
+}
+
+// ── Left: copyright + nav ─────────────────────────────────────────────────────
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.copyright {
+  font-size: 11px;
+  line-height: 14px;
+  color: rgba(255, 255, 255, 0.64);
+  white-space: nowrap;
+}
+
+.copyrightLink {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  height: 11px;
+
+  a {
+    font-size: 11px;
+    line-height: 11px;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-right: 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Vertical separator after each item
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 11px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+}
+
+// ── Right: region + secondary links ──────────────────────────────────────────
+
+.right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.regionBtn {
+  font-size: 11px;
+  line-height: 11px;
+  color: rgba(255, 255, 255, 0.92);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  padding-right: 10px;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.secondaryList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+  // Separator between "United States" button and first item
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondaryItem {
+  display: flex;
+  align-items: center;
+  height: 11px;
+
+  a {
+    font-size: 11px;
+    line-height: 11px;
+    color: rgba(255, 255, 255, 0.64);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Separator after each item
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 11px;
+    background: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+}

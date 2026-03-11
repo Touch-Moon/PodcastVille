@@ -1,0 +1,174 @@
+// ── Shelf wrapper ─────────────────────────────────────────────────────────────
+
+.shelf {
+  margin-bottom: 40px;
+}
+
+// ── Header band ───────────────────────────────────────────────────────────────
+
+.header {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  padding: 24px 20px 22px;
+
+  // Gradient: genre color → darkened version
+  // Use overlay layers instead of color-mix() for broader compatibility
+  background-color: var(--genre-color);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.38) 60%,
+      rgba(0, 0, 0, 0.62) 100%
+    );
+
+  @media (max-width: 483px) {
+    border-radius: 10px;
+    padding: 18px 16px 18px;
+  }
+}
+
+// ── Decorative bg circles (subtle) ───────────────────────────────────────────
+
+.bgCircle1,
+.bgCircle2 {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.bgCircle1 {
+  width: 220px;
+  height: 220px;
+  right: -40px;
+  top: -60px;
+}
+
+.bgCircle2 {
+  width: 140px;
+  height: 140px;
+  right: 80px;
+  bottom: -50px;
+}
+
+// ── Inner flex layout ─────────────────────────────────────────────────────────
+
+.headerInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+// ── Text block ────────────────────────────────────────────────────────────────
+
+.textBlock {
+  flex: 1;
+  min-width: 0;
+}
+
+.label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0 0 4px;
+
+  @media (max-width: 483px) {
+    font-size: 22px;
+  }
+}
+
+.tagline {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 14px;
+  max-width: 280px;
+
+  @media (max-width: 483px) {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}
+
+.seeAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 12px 5px 14px;
+  border-radius: 980px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// ── Decorative genre image ────────────────────────────────────────────────────
+
+.imageDecor {
+  position: relative;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 600px) {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 483px) {
+    display: none;
+  }
+}
+
+// ── Horizontal scroll row ─────────────────────────────────────────────────────
+
+.scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 4px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    scroll-snap-align: start;
+  }
+}

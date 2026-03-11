@@ -1,0 +1,41 @@
+// ── Main content column ─────────────────────────────────────────────────────
+// Flex sibling of QueuePanel inside #scrollable-page (flex-direction: row)
+
+.mainCol {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+
+  // Reserve space for fixed mini PlayerBar on mobile
+  @media (max-width: 483px) {
+    padding-bottom: var(--player-bar-height);
+  }
+}
+
+.mainCol.noPodcastBottomPad {
+  @media (max-width: 483px) {
+    padding-bottom: 0;
+  }
+}
+
+// ── Hide PlayerBar on mobile (all pages) ───────────────────────────────────
+
+.playerHideMobile {
+  @media (max-width: 483px) {
+    display: none;
+  }
+}
+
+// Remove main paddingTop when PlayerBar is hidden on mobile
+.mainMobileNoPad {
+  @media (max-width: 483px) {
+    padding-top: 0 !important;
+  }
+}
+
+.mainPodcastDetail {
+  // podcast detail specific overrides (desktop)
+}

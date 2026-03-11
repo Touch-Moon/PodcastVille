@@ -1,0 +1,28 @@
+.pageWrapper {
+  padding: 32px 40px 80px;
+
+  @media (max-width: 767px) {
+    padding: 24px 20px 80px;
+  }
+
+  @media (max-width: 483px) {
+    padding: 16px 16px 80px;
+  }
+}
+
+.rankSection {
+  margin-top: 8px;
+}
+
+.rankTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}

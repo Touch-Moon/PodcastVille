@@ -1,0 +1,58 @@
+.showsShelf {
+  margin-bottom: 40px;
+}
+
+.scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // ≤580px main: scroll 모드 진입 — gap 10px
+  @container main-content (max-width: 580px) {
+    gap: 10px;
+  }
+
+  // mobile (sidebar 없음, ≤483px viewport): gap 10px
+  @media (max-width: 483px) {
+    gap: 10px;
+  }
+
+  > * {
+    scroll-snap-align: start;
+    min-width: 120px; // 너무 좁아지는 것 방지
+
+    // ── Fill 모드 (@container main-content 기준) ─────────────────────────────
+
+    // Default (main ≥1101px, viewport ≥1361px): 6장 fill
+    flex: 1 0 calc((100% - 5 * 20px) / 6);
+
+    // main 765–1100px (viewport 1025–1360px): 5장 fill
+    @container main-content (max-width: 1100px) {
+      flex-basis: calc((100% - 4 * 20px) / 5);
+    }
+
+    // main 581–764px (viewport 841–1024px): 4장 fill
+    @container main-content (max-width: 764px) {
+      flex-basis: calc((100% - 3 * 20px) / 4);
+    }
+
+    // ── Scroll 모드 ───────────────────────────────────────────────────────────
+
+    // main ≤580px (viewport ≤840px): 3장 + partial — gap 10px
+    @container main-content (max-width: 580px) {
+      flex: 0 0 calc((100% - 2 * 10px) / 3.2);
+    }
+
+    // mobile (sidebar 없음, viewport ≤483px): 2장 + partial — @media가 @container 오버라이드
+    @media (max-width: 483px) {
+      flex: 0 0 calc((100% - 10px) / 2.3);
+    }
+  }
+}

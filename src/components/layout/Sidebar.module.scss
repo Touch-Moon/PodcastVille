@@ -1,0 +1,174 @@
+// Sidebar fills the full-height left grid column
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-sidebar-bg);
+  border-right: 1px solid var(--color-separator);
+  overflow: hidden;
+}
+
+// ── Logo ──────────────────────────────────────────────────────────────────────
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 17px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logoImg {
+  width: auto;
+  height: 22px;
+  object-fit: contain;
+}
+
+// ── Search ───────────────────────────────────────────────────────────────────
+
+.searchWrapper {
+  margin: 10px 20px 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  width: 100%;
+  height: 32px;
+  padding: 6px 5px 5px 28px;
+  background: var(--color-bg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  font-size: 12px;
+  font-family: var(--font-sans);
+  outline: none;
+
+  &::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  &:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// ── Scrollable nav area ────────────────────────────────────────────────────────
+
+.navScroll {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// ── Navigation list ───────────────────────────────────────────────────────────
+
+.navList {
+  list-style: none;
+  padding: 9px 20px;
+  margin: 0;
+}
+
+// ── Section label (e.g. "Library") ────────────────────────────────────────────
+
+.sectionLabel {
+  padding: 10px 20px 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.navItem {
+  padding: 3px;
+  margin: -3px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 3px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color var(--duration-instant) ease-in;
+}
+
+.navLinkActive {
+  background-color: rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .navLabel {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .navIconWrap svg {
+    color: var(--color-accent);
+  }
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+}
+
+.navIconWrap {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.navLabel {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+// ── Open in Podcasts ──────────────────────────────────────────────────────────
+
+.openLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color var(--duration-instant) ease-in;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}

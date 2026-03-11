@@ -1,0 +1,24 @@
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.seeAll {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 500;
+  transition: color var(--duration-instant) ease-in;
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}
