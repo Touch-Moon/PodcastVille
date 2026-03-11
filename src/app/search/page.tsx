@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -84,7 +84,7 @@ const ALL_EPISODES: Episode[] = (() => {
 
 // ── Search Page ─────────────────────────────────────────────────────────────
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(() => searchParams.get('q') ?? '');
 
@@ -321,5 +321,13 @@ export default function SearchPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: '80px 24px', color: 'rgba(255,255,255,0.4)' }}>Loading…</div>}>
+      <SearchContent />
+    </Suspense>
   );
 }
