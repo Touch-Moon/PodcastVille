@@ -108,4 +108,4 @@ src/
 ## Designer & Developer
 
 **Moon** — UX/UI Designer & Front-end Developer
-[View Case Study (KO/EN)](https://podcast-ville.vercel.app/podcastville-casestudy.html)
+[View Case Study](https://podcast-ville.vercel.app/podcastville-casestudy.html)

@@ -122,12 +122,12 @@
     flex-basis: calc((100% - 3 * 20px) / 4);
   }
 
-  // container ≤900px: 3 cards — Playing Next 패널이 열릴 때 자동 대응
+  // container ≤900px: 3 cards — automatically adapts when Playing Next panel opens
   @container (max-width: 900px) {
     flex-basis: calc((100% - 2 * 20px) / 3);
   }
 
-  // ── 스크롤 모드 (viewport < 1024px) — @media가 @container보다 나중에 적용 ──
+  // ── Scroll mode (viewport < 1024px) — @media applied after @container ────────
 
   // 768–1023px: 3 cards fixed (gap 10px)
   @media (max-width: 1023px) {
@@ -753,7 +753,7 @@
   }
 }
 
-// Gap: ShowCategory와 동일 규칙 (20px → 10px at ≤580px container / ≤483px media)
+// Gap: same rules as ShowCategory (20px → 10px at ≤580px container / ≤483px media)
 .shelfScroll {
   display: flex;
   gap: 20px;
@@ -774,34 +774,34 @@
   }
 }
 
-// ShowCategory > * 와 동일한 카드 수 규칙
-// max-width = flex-basis 로 카드 수 부족 시 grow 방지
+// Same card-count rules as ShowCategory > *
+// max-width = flex-basis to prevent cards from growing when count is below column target
 .shelfCard {
-  // Default (main ≥1101px): 6장 fill
+  // Default (main ≥1101px): 6 cards fill
   flex: 1 0 calc((100% - 5 * 20px) / 6);
   max-width: calc((100% - 5 * 20px) / 6);
   min-width: 120px;
   position: relative;
 
-  // main 765–1100px: 5장 fill
+  // main 765–1100px: 5 cards fill
   @container main-content (max-width: 1100px) {
     flex-basis: calc((100% - 4 * 20px) / 5);
     max-width: calc((100% - 4 * 20px) / 5);
   }
 
-  // main 581–764px: 4장 fill
+  // main 581–764px: 4 cards fill
   @container main-content (max-width: 764px) {
     flex-basis: calc((100% - 3 * 20px) / 4);
     max-width: calc((100% - 3 * 20px) / 4);
   }
 
-  // main ≤580px: 3장 + partial scroll — gap 10px
+  // main ≤580px: 3 cards + partial scroll — gap 10px
   @container main-content (max-width: 580px) {
     flex: 0 0 calc((100% - 2 * 10px) / 3.2);
     max-width: none;
   }
 
-  // mobile ≤483px: 2장 + partial
+  // mobile ≤483px: 2 cards + partial
   @media (max-width: 483px) {
     flex: 0 0 calc((100% - 10px) / 2.3);
     max-width: none;

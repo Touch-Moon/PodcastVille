@@ -1,5 +1,5 @@
 .card {
-  width: 100%; // 부모 flex-basis에 맞춰 반응형
+  width: 100%; // fills parent flex-basis
   cursor: pointer;
   border-radius: var(--radius-card);
   padding: 8px 0;
@@ -9,7 +9,7 @@
 
 .artwork {
   width: 100%;
-  aspect-ratio: 1; // 1:1 정사각형
+  aspect-ratio: 1; // square
   overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
   position: relative;

@@ -56,7 +56,7 @@ export default function PodcastHero({ podcast }: Props) {
           />
         </div>
 
-        {/* Info — title / author / meta / desc / actions 모두 포함 */}
+        {/* Info — title / author / meta / desc / actions */}
         <div className={styles.info}>
           <h1 className={styles.title}>{podcast.title}</h1>
           <a href="#" className={styles.author}>{podcast.author}</a>
@@ -67,7 +67,7 @@ export default function PodcastHero({ podcast }: Props) {
           </p>
           <p className={styles.description}>{podcast.description}</p>
 
-          {/* Actions: Latest Episode left, Follow/More right — info 컬럼 기준 */}
+          {/* Actions: Latest Episode left, Follow/More right */}
           <div className={styles.actions}>
             <button className={styles.latestBtn} onClick={handleLatestEpisode}>
               <svg width="10" height="11" viewBox="0 0 10 11" fill="currentColor">

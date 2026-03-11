@@ -29,7 +29,7 @@ interface ChannelResult {
   podcasts: Podcast[];
 }
 
-// ── 전체 팟캐스트 풀 (중복 제거) ──────────────────────────────────────────
+// ── Full podcast pool (deduplicated) ────────────────────────────────────────
 
 const ALL_PODCASTS_RAW: Podcast[] = [
   ...topShows,
@@ -59,7 +59,7 @@ function deduplicatePodcasts(podcasts: Podcast[]): Podcast[] {
 
 const ALL_PODCASTS = deduplicatePodcasts(ALL_PODCASTS_RAW);
 
-// ── 채널 맵 (author 기준 그룹핑, 모듈 레벨에서 1회 계산) ──────────────────
+// ── Channel map (grouped by author, computed once at module level) ───────────
 
 const ALL_CHANNELS_MAP = new Map<string, Podcast[]>();
 for (const p of ALL_PODCASTS) {
@@ -68,7 +68,7 @@ for (const p of ALL_PODCASTS) {
   ALL_CHANNELS_MAP.set(p.author, arr);
 }
 
-// ── 전체 에피소드 풀 (중복 제거) ──────────────────────────────────────────
+// ── Full episode pool (deduplicated) ────────────────────────────────────────
 
 const ALL_EPISODES: Episode[] = (() => {
   const seen = new Set<string>();
@@ -88,7 +88,7 @@ function SearchContent() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(() => searchParams.get('q') ?? '');
 
-  // URL 파라미터가 바뀌면 동기화 (뒤로 가기 등)
+  // Sync query state when URL param changes (e.g. back navigation)
   useEffect(() => {
     const q = searchParams.get('q') ?? '';
     setQuery(q);
@@ -116,7 +116,7 @@ function SearchContent() {
       c.title.toLowerCase().includes(q)
     );
 
-    // author명이 쿼리와 매칭되는 채널
+    // Channels whose author name matches the query
     const channels: ChannelResult[] = Array.from(ALL_CHANNELS_MAP.entries())
       .filter(([author]) => author.toLowerCase().includes(q))
       .map(([author, podcasts]) => ({ author, podcasts }));

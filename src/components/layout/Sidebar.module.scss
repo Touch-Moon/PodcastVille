@@ -154,21 +154,3 @@
   line-height: 1;
 }
 
-// ── Open in Podcasts ──────────────────────────────────────────────────────────
-
-.openLink {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 20px;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
-  color: var(--color-text-secondary);
-  font-size: 13px;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: color var(--duration-instant) ease-in;
-
-  &:hover {
-    color: var(--color-text-primary);
-  }
-}

@@ -20,8 +20,8 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  // Apple Podcasts 실측값: saturate(2.75) brightness(0.7) contrast(1.9)
-  // scale(1.08): blur 엣지 번짐 방지 (overflow: hidden이 클립함)
+  // Tuned values: saturate(2.75) brightness(0.7) contrast(1.9)
+  // scale(1.08): prevents blur edge bleed (clipped by overflow: hidden)
   filter: blur(60px) saturate(2.75) brightness(0.7) contrast(1.9);
   transform: scale(1.08);
 }

@@ -160,20 +160,6 @@ export default function Sidebar() {
         </ul>
       </div>
 
-      {/* Open in Podcasts */}
-      <a
-        href="https://podcasts.apple.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.openLink}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 7c-2.76 0-5 2.24-5 5 0 1.71.87 3.22 2.19 4.1-.12.4-.19.88-.19 1.4 0 1.66 1.34 3 3 3s3-1.34 3-3c0-.52-.07-1-.19-1.4C16.13 15.22 17 13.71 17 12c0-2.76-2.24-5-5-5z" fill="rgba(255,255,255,0.5)"/>
-          <circle cx="12" cy="16" r="1.2" fill="rgba(255,255,255,0.7)"/>
-        </svg>
-        Open in Podcasts ↗
-      </a>
     </nav>
   );
 }

@@ -163,7 +163,7 @@
   }
 }
 
-// ── Actions row (info 컬럼 너비 기준, space-between) ──────────────────────────
+// ── Actions row (space-between, constrained to info column width) ─────────────
 
 .actions {
   display: flex;
