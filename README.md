@@ -1,7 +1,7 @@
 # PodcastVille
 
-> Apple Podcasts 수준의 인터랙션을 목표로 한 팟캐스트 플랫폼 완전 리뉴얼 프로젝트.
-> UX/UI 디자인부터 프론트엔드 개발까지 1인 풀 사이클로 진행했습니다.
+> A full renewal of a podcast platform — targeting Apple Podcasts–level interaction quality.
+> Designed and built solo, end-to-end: UX/UI design through front-end development.
 
 🔗 **[Live Demo](https://podcast-ville.vercel.app)** · **[Case Study](https://podcast-ville.vercel.app/podcastville-casestudy.html)**
 
@@ -9,12 +9,12 @@
 
 ## Overview
 
-PodcastVille은 기존 서비스의 시각적 일관성·사용성·퍼포먼스 문제를 해소하기 위해 완전히 재설계된 팟캐스트 웹앱입니다. Apple Podcasts의 레이아웃과 인터랙션 품질을 레퍼런스로 삼아, 기획·디자인·구현·배포 전 과정을 단독으로 수행했습니다.
+PodcastVille is a completely redesigned podcast web app, created to resolve the visual inconsistency, usability gaps, and performance issues of the previous version. Using Apple Podcasts as a reference for interaction and design quality, the entire product cycle — research, UX design, UI design, development, and deployment — was handled by a single person.
 
 ## Tech Stack
 
-| 영역 | 기술 |
-|------|------|
+| Area | Technology |
+|------|------------|
 | Framework | Next.js 15 (App Router) |
 | Language | TypeScript |
 | Styling | SCSS Modules + CSS Custom Properties |
@@ -24,22 +24,22 @@ PodcastVille은 기존 서비스의 시각적 일관성·사용성·퍼포먼스
 
 ## Pages
 
-| 경로 | 설명 |
-|------|------|
-| `/` | Home — 추천 콘텐츠 및 최신 에피소드 |
-| `/new` | New — 신규 쇼 · 장르별 선반 · 에디토리얼 섹션 |
-| `/charts` | Top Charts — 8개 카테고리 탭 필터 |
-| `/search` | Search — 실시간 검색 (Shows / Episodes / Channels / Categories) |
-| `/podcast/[slug]` | Podcast Detail — 에피소드 목록, 평점, 호스트, 관련 쇼 |
+| Route | Description |
+|-------|-------------|
+| `/` | Home — featured content and latest episodes |
+| `/new` | New — new shows, genre shelves, editorial sections |
+| `/charts` | Top Charts — tab filter across 8 categories |
+| `/search` | Search — real-time search across Shows, Episodes, Channels, and Categories |
+| `/podcast/[slug]` | Podcast Detail — episode list, ratings, host profiles, related shows |
 | `/library/*` | Library — Latest Episodes, Shows, Channels, Saved |
 
 ## Key Features
 
-- **앰비언트 풀스크린 플레이어** — Canvas API + `requestAnimationFrame`으로 앨범 아트워크를 4개 회전 스프라이트로 렌더링, 현재 트랙에 맞게 동적 업데이트
-- **CSS Container Queries** — 미디어 쿼리 대신 컨테이너 기준 카드 그리드 반응형 구현
-- **완전 반응형** — 375px 모바일 → 1440px 데스크탑 전 구간 대응
-- **실시간 검색** — 클라이언트 사이드 필터링, URL 파라미터 동기화
-- **다크 디자인 시스템** — CSS 변수 기반 토큰 (`--color-bg`, `--color-accent`, `--color-separator` 등)
+- **Ambient Full-Screen Player** — Canvas API + `requestAnimationFrame` renders album artwork as 4 rotating sprites, creating a living background that updates dynamically with the current track
+- **CSS Container Queries** — card grids respond to parent container width rather than viewport, dramatically improving component reusability
+- **Fully Responsive** — seamless layout from 375px mobile through 1440px desktop
+- **Real-time Search** — client-side filtering with URL parameter sync for shareability and back-navigation
+- **Dark Design System** — CSS custom property tokens (`--color-bg`, `--color-accent`, `--color-separator`, etc.) as the single source of truth for all styling
 
 ## Layout Structure
 
@@ -47,14 +47,14 @@ PodcastVille은 기존 서비스의 시각적 일관성·사용성·퍼포먼스
 <body>
   <div id="app-container">          ← CSS Grid: 260px | 1fr
     <div id="sidebar-col">
-      <Sidebar />                   ← fixed, 260px (≥484px)
+      <Sidebar />                   ← fixed, 260px wide (≥ 484px)
     </div>
     <div id="scrollable-page">
-      <PlayerBar />                 ← fixed top, h:54px
+      <PlayerBar />                 ← fixed top, height: 54px
       <main>
         {children}
       </main>
-      <MobileNav />                 ← fixed bottom, ≤483px
+      <MobileNav />                 ← fixed bottom, ≤ 483px only
     </div>
   </div>
 </body>
@@ -62,23 +62,23 @@ PodcastVille은 기존 서비스의 시각적 일관성·사용성·퍼포먼스
 
 ## Responsive Breakpoints
 
-| 너비 | 변화 |
-|------|------|
-| ≤ 483px | Sidebar 숨김 → MobileNav 표시, PlayerBar `left: 0` |
-| ≤ 600px | Speed 버튼 숨김 |
-| ≤ 768px | Volume Slider · Podcast Icon 숨김 |
-| ≤ 1100px | Sign In 버튼 숨김 |
+| Width | Behavior |
+|-------|----------|
+| ≤ 483px | Sidebar hidden → MobileNav shown, PlayerBar `left: 0` |
+| ≤ 600px | Speed control hidden |
+| ≤ 768px | Volume slider and podcast icon hidden |
+| ≤ 1100px | Sign In button hidden |
 
 ## Getting Started
 
 ```bash
-# 의존성 설치
+# Install dependencies
 npm install
 
-# 개발 서버 실행 (http://localhost:3000)
+# Start development server (http://localhost:3000)
 npm run dev
 
-# 프로덕션 빌드
+# Production build
 npm run build
 ```
 
@@ -87,20 +87,20 @@ npm run build
 ```
 src/
 ├── app/
-│   ├── globals.scss          CSS 변수 + 그리드 레이아웃
-│   ├── layout.tsx            앱 컨테이너 조립
-│   ├── new/                  /new 페이지
-│   ├── charts/               /charts 페이지
-│   ├── search/               /search 페이지
-│   ├── library/              /library/* 페이지
-│   └── podcast/[slug]/       팟캐스트 상세 페이지
+│   ├── globals.scss          CSS variables + grid layout
+│   ├── layout.tsx            App container assembly
+│   ├── new/                  /new page
+│   ├── charts/               /charts page
+│   ├── search/               /search page
+│   ├── library/              /library/* pages
+│   └── podcast/[slug]/       Podcast detail page
 ├── components/
 │   ├── layout/               PlayerBar · Sidebar · MobileNav · FullScreenPlayer
-│   ├── sections/             페이지별 섹션 컴포넌트
-│   ├── podcast/              팟캐스트 상세 전용 컴포넌트
-│   └── ui/                   공용 UI (PodcastCard · SectionHeader 등)
-├── data/                     정적 데이터 (podcasts · episodes · podcastDetails)
-└── types/                    TypeScript 타입 정의
+│   ├── sections/             Page-level section components
+│   ├── podcast/              Podcast detail–specific components
+│   └── ui/                   Shared UI (PodcastCard · SectionHeader, etc.)
+├── data/                     Static data (podcasts · episodes · podcastDetails)
+└── types/                    TypeScript type definitions
 ```
 
 ---
@@ -108,4 +108,4 @@ src/
 ## Designer & Developer
 
 **Moon** — UX/UI Designer & Front-end Developer
-[Case Study (KO/EN)](https://podcast-ville.vercel.app/podcastville-casestudy.html)
+[View Case Study (KO/EN)](https://podcast-ville.vercel.app/podcastville-casestudy.html)
