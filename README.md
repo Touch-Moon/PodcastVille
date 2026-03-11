@@ -33,6 +33,22 @@ PodcastVille is a completely redesigned podcast web app, created to resolve the 
 | `/podcast/[slug]` | Podcast Detail — episode list, ratings, host profiles, related shows |
 | `/library/*` | Library — Latest Episodes, Shows, Channels, Saved |
 
+## Dev Notes
+
+**Next.js 15** — App Router's file-system routing manages page structure intuitively. Server/Client Component separation keeps the bundle lean, and next/image + next/font handle performance optimization out of the box.
+
+**React 19** — Component-driven UI foundation. Reusable components (PlayerBar, Sidebar, PodcastCard) are composed hierarchically. useState, useRef, and useCallback handle interaction state declaratively.
+
+**TypeScript** — Core data types (Podcast, Episode, FeaturedContent) are centrally defined in `src/types/index.ts`, guaranteeing prop flows between components at compile time and catching errors before runtime.
+
+**SCSS Modules** — Tailwind was removed in favor of SCSS Modules. CSS custom properties define all design tokens from a single source, while SCSS Modules provide component-scoped encapsulation without class name conflicts.
+
+**Canvas API** — Powers the ambient full-screen player background. Album artwork is rendered as 4 rotating sprites on a `requestAnimationFrame` loop, combined with blur and opacity to reflect the mood of the current track.
+
+**CSS Container Queries** — Card grids respond to parent container width rather than the viewport. The same component works anywhere — with or without the sidebar — without any layout adjustments.
+
+**Vercel** — Connected to GitHub for automatic deployment on every push to `main`. Edge Network CDN and next/image optimization work with zero additional configuration.
+
 ## Key Features
 
 - **Ambient Full-Screen Player** — Canvas API + `requestAnimationFrame` renders album artwork as 4 rotating sprites, creating a living background that updates dynamically with the current track
