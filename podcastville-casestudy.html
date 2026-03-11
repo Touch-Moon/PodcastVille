@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -390,12 +390,12 @@
     }
   </style>
 </head>
-<body class="lang-ko">
+<body class="lang-en">
 
   <!-- Language Toggle -->
   <div class="lang-bar">
-    <button onclick="setLang('ko')" id="btn-ko" class="active">KO</button>
-    <button onclick="setLang('en')" id="btn-en">EN</button>
+    <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
+    <button onclick="setLang('ko')" id="btn-ko">KO</button>
   </div>
 
   <!-- ═══════════════════════════════════════ HERO -->
@@ -849,10 +849,10 @@
       document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
       try { localStorage.setItem('pv-lang', lang); } catch(e) {}
     }
-    // Restore saved preference
+    // Restore saved preference (default: EN)
     try {
       const saved = localStorage.getItem('pv-lang');
-      if (saved === 'en') setLang('en');
+      if (saved === 'ko') setLang('ko');
     } catch(e) {}
   </script>
 
