@@ -358,6 +358,53 @@
     .r-block { width: 48px; height: 48px; background: var(--border); }
     .r-label { font-size: 10px; color: var(--text3); text-align: center; margin-top: 4px; }
 
+    /* ── Dev Notes ── */
+    .devnote-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .devnote-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color .2s;
+    }
+    .devnote-card:hover { border-color: rgba(156,90,242,.35); }
+    .devnote-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .devnote-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+      background: rgba(156,90,242,.15);
+      border: 1px solid rgba(156,90,242,.3);
+      color: var(--accent2);
+      white-space: nowrap;
+    }
+    .devnote-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .devnote-card p {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.7;
+      margin: 0;
+    }
+
     /* ── CTA ── */
     .cta-section {
       padding: 120px 24px;
@@ -812,6 +859,85 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ DEV NOTES -->
+  <section>
+    <div class="container">
+      <p class="section-label" data-lang="ko">개발 노트</p>
+      <p class="section-label" data-lang="en">Dev Notes</p>
+      <h2 class="section-title" data-lang="ko">기술 선택의 이유</h2>
+      <h2 class="section-title" data-lang="en">Why each technology was chosen</h2>
+      <p class="section-body" data-lang="ko">각 기술은 단순히 트렌드를 따른 것이 아니라, 프로젝트의 요구사항과 개발 경험을 기반으로 의도적으로 선택했습니다.</p>
+      <p class="section-body" data-lang="en">Every technology was chosen deliberately — based on project requirements and hands-on experience, not just trends.</p>
+
+      <div class="devnote-grid">
+
+        <div class="devnote-card">
+          <div class="devnote-header">
+            <span class="devnote-badge">Framework</span>
+            <span class="devnote-name">Next.js 15</span>
+          </div>
+          <p data-lang="ko">App Router 기반의 파일 시스템 라우팅으로 페이지 구조를 직관적으로 관리했습니다. Server Component와 Client Component를 명확히 분리해 번들 크기를 최소화하고, next/image와 next/font로 성능 최적화를 기본값으로 확보했습니다.</p>
+          <p data-lang="en">App Router's file-system routing made page structure intuitive. Server/Client Component separation kept the bundle lean, while next/image and next/font handled performance optimization out of the box.</p>
+        </div>
+
+        <div class="devnote-card">
+          <div class="devnote-header">
+            <span class="devnote-badge">UI Library</span>
+            <span class="devnote-name">React 19</span>
+          </div>
+          <p data-lang="ko">컴포넌트 단위 UI 설계의 기반입니다. PlayerBar, Sidebar, PodcastCard 등 재사용 가능한 컴포넌트를 계층적으로 구성해 유지보수성을 높였습니다. useState, useRef, useCallback을 활용해 인터랙션 상태를 선언적으로 관리했습니다.</p>
+          <p data-lang="en">The foundation for component-driven UI. Reusable components like PlayerBar, Sidebar, and PodcastCard are composed hierarchically for maintainability. useState, useRef, and useCallback handle interaction state declaratively.</p>
+        </div>
+
+        <div class="devnote-card">
+          <div class="devnote-header">
+            <span class="devnote-badge">Language</span>
+            <span class="devnote-name">TypeScript</span>
+          </div>
+          <p data-lang="ko">Podcast, Episode, FeaturedContent 등 핵심 데이터 타입을 src/types/index.ts에 중앙 정의해 컴포넌트 간 props 흐름을 타입으로 보장했습니다. 런타임 에러를 빌드 단계에서 사전에 차단할 수 있어 개발 안정성이 크게 향상됐습니다.</p>
+          <p data-lang="en">Core data types (Podcast, Episode, FeaturedContent) are centrally defined in src/types/index.ts, guaranteeing prop flows between components at compile time. Build-time error catching significantly improved development confidence.</p>
+        </div>
+
+        <div class="devnote-card">
+          <div class="devnote-header">
+            <span class="devnote-badge">Styling</span>
+            <span class="devnote-name">SCSS Modules</span>
+          </div>
+          <p data-lang="ko">Tailwind를 제거하고 SCSS Modules로 전환한 것이 이 프로젝트의 핵심 스타일링 결정입니다. CSS 변수로 디자인 토큰을 정의해 전체 테마를 단일 소스로 통제하고, 클래스 충돌 없이 컴포넌트 단위 스타일 캡슐화를 구현했습니다.</p>
+          <p data-lang="en">Removing Tailwind in favor of SCSS Modules was the key styling decision. CSS custom properties define design tokens from a single source, while SCSS Modules provide component-scoped encapsulation without class name conflicts.</p>
+        </div>
+
+        <div class="devnote-card">
+          <div class="devnote-header">
+            <span class="devnote-badge">Browser API</span>
+            <span class="devnote-name">Canvas API</span>
+          </div>
+          <p data-lang="ko">앰비언트 풀스크린 플레이어의 배경 효과를 위해 사용했습니다. requestAnimationFrame 루프 위에서 앨범 아트워크를 4개의 회전 스프라이트로 분산 렌더링하며, blur와 opacity를 조합해 음악의 분위기를 시각적으로 표현합니다.</p>
+          <p data-lang="en">Powers the ambient full-screen player background. On a requestAnimationFrame loop, album artwork is rendered as 4 rotating sprites — combined with blur and opacity to visually express the mood of the current track.</p>
+        </div>
+
+        <div class="devnote-card">
+          <div class="devnote-header">
+            <span class="devnote-badge">CSS</span>
+            <span class="devnote-name">Container Queries</span>
+          </div>
+          <p data-lang="ko">카드 그리드의 반응형 처리에 미디어 쿼리 대신 CSS Container Queries를 적용했습니다. 뷰포트가 아닌 부모 컨테이너 너비를 기준으로 레이아웃이 결정되므로, 동일 컴포넌트를 사이드바 유무에 관계없이 어디서나 재사용할 수 있습니다.</p>
+          <p data-lang="en">Card grids use CSS Container Queries instead of media queries. Layout responds to parent container width — not the viewport — making the same component reusable anywhere, regardless of whether a sidebar is open.</p>
+        </div>
+
+        <div class="devnote-card">
+          <div class="devnote-header">
+            <span class="devnote-badge">Deploy</span>
+            <span class="devnote-name">Vercel</span>
+          </div>
+          <p data-lang="ko">GitHub 레포지토리와 연결해 main 브랜치 push 시 자동 배포되도록 구성했습니다. Edge Network를 통한 글로벌 CDN 배포와 next/image의 자동 이미지 최적화를 별도 설정 없이 활용할 수 있습니다.</p>
+          <p data-lang="en">Connected to GitHub for automatic deployment on every push to main. Vercel's Edge Network provides global CDN distribution, and next/image optimization works out of the box with zero additional configuration.</p>
+        </div>
+
       </div>
     </div>
   </section>
