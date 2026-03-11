@@ -90,11 +90,17 @@
     }
     .hero-inner { max-width: 960px; margin: 0 auto; width: 100%; }
 
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
     .logo-mark {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 32px;
     }
     .logo-mark svg { width: 38px; height: auto; }
     .logo-mark span {
@@ -115,7 +121,6 @@
       text-transform: uppercase;
       padding: 6px 14px;
       border-radius: 50px;
-      margin-bottom: 24px;
     }
 
     .hero h1 {
@@ -402,19 +407,20 @@
   <header class="hero">
     <div class="hero-inner">
 
-      <div class="logo-mark">
-        <!-- icon-moon.svg inline -->
-        <svg viewBox="0 0 1111 609" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Moon logo">
-          <path d="M1075.81 548.81C1091.4 575.476 1072.17 609 1041.28 609H897.724C866.834 609 847.602 575.476 863.194 548.81L952.234 396.528C959.956 383.321 979.043 383.321 986.765 396.528L1075.81 548.81Z" fill="white"/>
-          <path d="M367.554 11.5794C358.653 -3.85979 336.413 -3.85981 327.512 11.5794L3.13538 574.24C-5.76965 589.686 5.35431 609 23.1561 609H240.052C268.652 609 295.076 593.733 309.36 568.956L446.234 331.535C468.161 293.5 520.447 290.603 547 322.844L367.554 11.5794Z" fill="white"/>
-          <path d="M766.554 11.5794C757.653 -3.85979 735.413 -3.85981 726.512 11.5794L402.135 574.24C393.23 589.686 404.354 609 422.156 609H639.052C667.652 609 694.076 593.733 708.36 568.956L845.234 331.535C867.161 293.5 919.447 290.603 946 322.844L766.554 11.5794Z" fill="white"/>
-          <circle cx="547" cy="76" r="76" fill="white"/>
-        </svg>
-        <span>Moon · Portfolio</span>
+      <div class="hero-meta">
+        <div class="logo-mark">
+          <!-- icon-moon.svg inline -->
+          <svg viewBox="0 0 1111 609" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Moon logo">
+            <path d="M1075.81 548.81C1091.4 575.476 1072.17 609 1041.28 609H897.724C866.834 609 847.602 575.476 863.194 548.81L952.234 396.528C959.956 383.321 979.043 383.321 986.765 396.528L1075.81 548.81Z" fill="white"/>
+            <path d="M367.554 11.5794C358.653 -3.85979 336.413 -3.85981 327.512 11.5794L3.13538 574.24C-5.76965 589.686 5.35431 609 23.1561 609H240.052C268.652 609 295.076 593.733 309.36 568.956L446.234 331.535C468.161 293.5 520.447 290.603 547 322.844L367.554 11.5794Z" fill="white"/>
+            <path d="M766.554 11.5794C757.653 -3.85979 735.413 -3.85981 726.512 11.5794L402.135 574.24C393.23 589.686 404.354 609 422.156 609H639.052C667.652 609 694.076 593.733 708.36 568.956L845.234 331.535C867.161 293.5 919.447 290.603 946 322.844L766.554 11.5794Z" fill="white"/>
+            <circle cx="547" cy="76" r="76" fill="white"/>
+          </svg>
+          <span>Moon · Portfolio</span>
+        </div>
+        <div class="hero-tag" data-lang="ko">케이스 스터디 · 리뉴얼 프로젝트</div>
+        <div class="hero-tag" data-lang="en">Case Study · Renewal Project</div>
       </div>
-
-      <div class="hero-tag" data-lang="ko">케이스 스터디 · 리뉴얼 프로젝트</div>
-      <div class="hero-tag" data-lang="en">Case Study · Renewal Project</div>
 
       <h1>
         <span data-lang="ko">PodcastVille<br/><span class="grad">완전 리뉴얼</span></span>
